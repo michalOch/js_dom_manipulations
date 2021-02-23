@@ -1,39 +1,44 @@
-let val;
+// DOM Selector For Single Elements
+// Get element by id
+// document.getElementById()
+// *********************************************************
+console.log(document.getElementById('task-title'));
 
-val = document;
-val = document.all;
-val = document.all[0];
-val = document.all.length;
-val = document.head;
-val = document.body;
-val = document.doctype;
-val = document.domain;
-val = document.URL;
-val = document.characterSet;
-val = document.contentType;
+// Get things from the element
+console.log(document.getElementById('task-title').id);
+console.log(document.getElementById('task-title').className);
 
-val = document.forms;
-val = document.forms[0];
-val = document.forms[0].id;
-val = document.forms[0].method;
-val = document.forms[0].action;
+// Change styling
+document.getElementById('task-title').style.background = '#333';
+document.getElementById('task-title').style.color = '#fff';
+document.getElementById('task-title').style.padding = '5px';
+// document.getElementById('task-title').style.display = 'none';
 
-val = document.links;
-val = document.links[0];
-val = document.links[0].className;
-val = document.links[0].classList[0];
+// Change content
+document.getElementById('task-title').textContent = 'Task list';
+document.getElementById('task-title').innerText = 'New Tasks';
+document.getElementById('task-title').innerHTML = '<span style="color: red">Taskmaster</span>';
 
-val = document.images;
+const title = document.getElementById('task-title');
+title.textContent = 'Task list';
+title.innerText = 'New Tasks';
+title.innerHTML = '<span style="color: red">Tasks</span>';
 
-val = document.scripts;
-val = document.scripts[2].getAttribute('src');
+// Query selector
+// document.querySelector();
+// *********************************************************
+console.log(document.querySelector('#task-title'));
+console.log(document.querySelector('.card-title'));
+console.log(document.querySelector('.collection-item'));
+console.log(document.querySelector('h5'));
 
-let scripts = document.scripts;
-
-let scriptsArray = Array.from(scripts);
-
-scriptsArray.forEach(function (script) {
-  console.log(script.getAttribute('src'));
-})
-
-console.log(val);
+// targeting list element
+document.querySelector('li').style.color = 'red';
+document.querySelector('ul li').style.color = 'blue';
+// select last item
+document.querySelector('li:last-child').style.color = 'red';
+// select third item
+document.querySelector('li:nth-child(3)').style.color = 'yellow';
+// select odd item
+document.querySelector('li:nth-child(even').style.background = 'purple';
+document.querySelector('li:nth-child(even').textContent = 'Hello World';
