@@ -1,44 +1,66 @@
-// DOM Selector For Single Elements
-// Get element by id
-// document.getElementById()
-// *********************************************************
-console.log(document.getElementById('task-title'));
+// DOM Selectors for Multiple Elements
+// *************************************************
 
-// Get things from the element
-console.log(document.getElementById('task-title').id);
-console.log(document.getElementById('task-title').className);
+// Get elements by class name
+// document.getElementsByClassName()
+// *************************************************
 
-// Change styling
-document.getElementById('task-title').style.background = '#333';
-document.getElementById('task-title').style.color = '#fff';
-document.getElementById('task-title').style.padding = '5px';
-// document.getElementById('task-title').style.display = 'none';
+// const items = document.getElementsByClassName('collection-item');
+// console.log(items);
+// console.log(items[0]);
+// items[0].style.color = 'red';
+// items[3].textContent = 'new text';
 
-// Change content
-document.getElementById('task-title').textContent = 'Task list';
-document.getElementById('task-title').innerText = 'New Tasks';
-document.getElementById('task-title').innerHTML = '<span style="color: red">Taskmaster</span>';
+// const listItems = document.querySelector('ul').getElementsByClassName('collection-item');
+// console.log(listItems);
 
-const title = document.getElementById('task-title');
-title.textContent = 'Task list';
-title.innerText = 'New Tasks';
-title.innerHTML = '<span style="color: red">Tasks</span>';
+// Get elements by tag name
+// document.getElementsByTagName
+// *************************************************
 
-// Query selector
-// document.querySelector();
-// *********************************************************
-console.log(document.querySelector('#task-title'));
-console.log(document.querySelector('.card-title'));
-console.log(document.querySelector('.collection-item'));
-console.log(document.querySelector('h5'));
+// let lis = document.getElementsByTagName('li');
+// console.log(lis);
+// console.log(lis[0]);
+// lis[0].style.color = 'purple';
+// lis[3].textContent = 'Greetings';
 
-// targeting list element
-document.querySelector('li').style.color = 'red';
-document.querySelector('ul li').style.color = 'blue';
-// select last item
-document.querySelector('li:last-child').style.color = 'red';
-// select third item
-document.querySelector('li:nth-child(3)').style.color = 'yellow';
-// select odd item
-document.querySelector('li:nth-child(even').style.background = 'purple';
-document.querySelector('li:nth-child(even').textContent = 'Hello World';
+// // Convert HTML Collection into array
+// lis = Array.from(lis);
+// // lis.reverse();
+// lis.forEach(function (li, index) {
+//   console.log(li.className);
+//   li.textContent = `Hello ${index} ...`;
+// });
+
+// console.log(lis);
+
+// Query selector all
+// document.querySelectorAll
+// *************************************************
+
+// let items = document.querySelectorAll('ul.collection li.collection-item');
+
+// items.forEach(function (item, index) {
+//   item.textContent = `Item nr. ${index}`;
+// });
+
+// console.log(items);
+
+// Changing the style for odd and even items
+// *************************************************
+let liOdd = document.querySelectorAll('li:nth-child(odd)');
+let liEven = document.querySelectorAll('li:nth-child(even)');
+
+liOdd.forEach(function (item) {
+  item.style.background = 'black';
+  item.style.color = 'white';
+});
+
+liEven.forEach(function (item) {
+  item.style.background = 'blue';
+  item.style.color = 'red';
+})
+
+for (let i = 0; i < liEven.length; i++) {
+  liEven[i].style.color = 'green';
+}
