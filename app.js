@@ -1,38 +1,80 @@
-// Create the element
-const li = document.createElement('li');
+// Manipulation of elements atribiutes, clasess etc
 
-// Add class
-li.className = 'collection-item';
+// ***************************************************
+// Replace elements
+// ***************************************************
 
+// Create Element
+const newHeading = document.createElement('h2');
 // Add id
-li.id = 'new-item';
+newHeading.id = 'task-title';
+// Add text
+let text = document.createTextNode('Task List')
+newHeading.appendChild(text);
 
-// Add attribiute
-li.setAttribute('title', 'New Item');
+// Get the old heading
+const oldHeading = document.getElementById('task-title');
 
-/*
-<a href="#" class="delete-item secondary-content">
-  <i class="fa fa-remove"></i>
-</a>
-*/
+// Parrent
+const cardAction = document.querySelector('.card-action');
 
-// create link element
-let link = document.createElement('a');
-link.className = 'delete-item secondary-content';
-link.setAttribute('href', '#');
+// Replace
+cardAction.replaceChild(newHeading, oldHeading);
 
-// Add icon html element
-link.innerHTML = '<i class="fa fa-remove"></i>';
+// ***************************************************
+// Remove elements
+// ***************************************************
+const lis = document.querySelectorAll('li');
+const list = document.querySelector('ul');
 
-// Append link into li
-li.appendChild(link);
+// Remove list item
+lis[0].remove();
+// lis[1].remove();
+// lis[2].remove();
+// lis[3].remove();
+// lis[4].remove();
 
-// create text node and append
-let text = document.createTextNode('Hello world');
-li.appendChild(text);
+// Remove child element
+list.removeChild(lis[3]);
 
-// Append li as child to ul
-document.querySelector('ul.collection').appendChild(li);
+// ***************************************************
+// Classes and attribiutes
+// ***************************************************
+const fistLi = document.querySelector('li:first-child');
+const link = fistLi.children[0];
 
+let val;
 
-console.log(li);
+val = link.className;
+val = link.classList;
+val = link.classList[0];
+val = link.classList[1];
+
+// Classes
+// ***************************************************
+// Add class to class list
+link.classList.add('test');
+
+// Remove class from class list
+link.classList.remove('test');
+// link.classList.remove('delete-item');
+val = link.classList;
+
+// Attributes
+// ***************************************************
+// set attribute
+link.setAttribute('href', 'http://www.google.pl/');
+// get attribute
+val = link.getAttribute('href');
+// check if there is an attribute
+val = link.hasAttribute('title');
+val = link.hasAttribute('href');
+// add a title attribiute
+link.setAttribute('title', 'Title');
+val = link.hasAttribute('title');
+// remove title attribute
+link.removeAttribute('title');
+val = link.hasAttribute('title');
+val = link;
+
+console.log(val);
