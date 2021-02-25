@@ -1,53 +1,39 @@
-const form = document.querySelector('form');
-const taskInput = document.getElementById('task');
-const heading = document.querySelector('h5');
-const select = document.querySelector('select');
+// Event Bubbling and Event Delegations
 
-// Clear input
-taskInput.value = '';
+// document.querySelector('.card-title').addEventListener('click', function () {
+//   console.log('card title');
+// });
 
-// form.addEventListener('submit', runEvent);
+// document.querySelector('.card-content').addEventListener('click', function () {
+//   console.log('card content');
+// });
 
-// Keydown
-//taskInput.addEventListener('keydown', runEvent);
+// document.querySelector('.card').addEventListener('click', function () {
+//   console.log('card');
+// });
 
-// KeyUp
-//taskInput.addEventListener('keyup', runEvent);
+// document.querySelector('.col').addEventListener('click', function () {
+//   console.log('col');
+// });
 
-// KeyPress
-//taskInput.addEventListener('keypress', runEvent);
+// Event delegation
 
-// Focus
-//taskInput.addEventListener('focus', runEvent);
+// const delItem = document.querySelector('.delete-item');
+// delItem.addEventListener('click', deleteItem);
 
-// Blur
-//taskInput.addEventListener('blur', runEvent);
+document.body.addEventListener('click', deleteItem);
 
-// Cut
-// taskInput.addEventListener('cut', runEvent);
-// Copy
-// taskInput.addEventListener('copy', runEvent);
+// function deleteItem(e) {
 
-// Paste
-// taskInput.addEventListener('paste', runEvent);
+//   if (e.target.parentElement.className === 'delete-item secondary-content') {
+//     console.log('delete item');
+//   }
+// };
 
-// Input
-//taskInput.addEventListener('input', runEvent);
 
-// Change
-select.addEventListener('change', runEvent);
-
-function runEvent(e) {
-
-  console.log(`Event type: ${e.type}`);
-
-  let value = e.target.value;
-  console.log(e.target.value);
-
-  // heading.innerText = value;
-
-  // Get input value
-  // console.log(taskInput.value);
-
-  // e.preventDefault();
-}
+function deleteItem(e) {
+  if (e.target.parentElement.classList.contains('delete-item')) {
+    console.log('delete item');
+    e.target.parentElement.parentElement.remove();
+  }
+};
