@@ -1,40 +1,53 @@
-// MOUSE EVENTS
-const clearButton = document.querySelector('.clear-tasks');
-const card = document.querySelector('.card');
+const form = document.querySelector('form');
+const taskInput = document.getElementById('task');
 const heading = document.querySelector('h5');
+const select = document.querySelector('select');
 
-// Click
-// clearButton.addEventListener('click', runEvent);
+// Clear input
+taskInput.value = '';
 
-// Double Click
-// clearButton.addEventListener('dblclick', runEvent);
+// form.addEventListener('submit', runEvent);
 
-// Mousedown - click and hold 
-//clearButton.addEventListener('mousedown', runEvent);
+// Keydown
+//taskInput.addEventListener('keydown', runEvent);
 
-// Mouseup - fire after let go of hold (click and hold)
-//clearButton.addEventListener('mouseup', runEvent);
+// KeyUp
+//taskInput.addEventListener('keyup', runEvent);
 
-// Mouseenter - drag into the button
-// card.addEventListener('mouseenter', runEvent);
+// KeyPress
+//taskInput.addEventListener('keypress', runEvent);
 
-// Mouseleave
-// card.addEventListener('mouseleave', runEvent);
+// Focus
+//taskInput.addEventListener('focus', runEvent);
 
-// Mouseover 
-// card.addEventListener('mouseover', runEvent);
+// Blur
+//taskInput.addEventListener('blur', runEvent);
 
-// Mouseout
-// card.addEventListener('mouseout', runEvent);
+// Cut
+// taskInput.addEventListener('cut', runEvent);
+// Copy
+// taskInput.addEventListener('copy', runEvent);
 
-// Mousemove
-card.addEventListener('mousemove', runEvent);
+// Paste
+// taskInput.addEventListener('paste', runEvent);
 
-// Event Handler
+// Input
+//taskInput.addEventListener('input', runEvent);
+
+// Change
+select.addEventListener('change', runEvent);
+
 function runEvent(e) {
-  console.log(`EVENT TYPE: ${e.type}`);
 
-  heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+  console.log(`Event type: ${e.type}`);
 
-  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`;
-};
+  let value = e.target.value;
+  console.log(e.target.value);
+
+  // heading.innerText = value;
+
+  // Get input value
+  // console.log(taskInput.value);
+
+  // e.preventDefault();
+}
