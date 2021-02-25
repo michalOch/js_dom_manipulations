@@ -1,80 +1,40 @@
-// Manipulation of elements atribiutes, clasess etc
+// Events 
+// document.querySelector('.clear-tasks').addEventListener('click', function (e) {
+//   console.log('Hello World');
+//   //e.preventDefault();
 
-// ***************************************************
-// Replace elements
-// ***************************************************
+// });
 
-// Create Element
-const newHeading = document.createElement('h2');
-// Add id
-newHeading.id = 'task-title';
-// Add text
-let text = document.createTextNode('Task List')
-newHeading.appendChild(text);
+document.querySelector('.clear-tasks').addEventListener('click', onClick);
 
-// Get the old heading
-const oldHeading = document.getElementById('task-title');
+function onClick(e) {
+  //console.log('Clicked');
 
-// Parrent
-const cardAction = document.querySelector('.card-action');
+  let val;
 
-// Replace
-cardAction.replaceChild(newHeading, oldHeading);
+  val = e;
 
-// ***************************************************
-// Remove elements
-// ***************************************************
-const lis = document.querySelectorAll('li');
-const list = document.querySelector('ul');
+  // Event target element
+  val = e.target;
+  val = e.target.className;
+  val = e.target.classList;
 
-// Remove list item
-lis[0].remove();
-// lis[1].remove();
-// lis[2].remove();
-// lis[3].remove();
-// lis[4].remove();
+  e.target.innerText = 'Hello';
+  e.target.style.color = 'red';
 
-// Remove child element
-list.removeChild(lis[3]);
+  // Event type
+  val = e.type;
 
-// ***************************************************
-// Classes and attribiutes
-// ***************************************************
-const fistLi = document.querySelector('li:first-child');
-const link = fistLi.children[0];
+  // Time stamp
+  val = e.timeStamp;
 
-let val;
+  // Coordinates events relative to the window 
+  val = e.clientY;
+  val = e.clientX;
 
-val = link.className;
-val = link.classList;
-val = link.classList[0];
-val = link.classList[1];
+  // Coordinates events relative to element itself
+  val = e.offsetY;
+  val = e.offsetX;
 
-// Classes
-// ***************************************************
-// Add class to class list
-link.classList.add('test');
-
-// Remove class from class list
-link.classList.remove('test');
-// link.classList.remove('delete-item');
-val = link.classList;
-
-// Attributes
-// ***************************************************
-// set attribute
-link.setAttribute('href', 'http://www.google.pl/');
-// get attribute
-val = link.getAttribute('href');
-// check if there is an attribute
-val = link.hasAttribute('title');
-val = link.hasAttribute('href');
-// add a title attribiute
-link.setAttribute('title', 'Title');
-val = link.hasAttribute('title');
-// remove title attribute
-link.removeAttribute('title');
-val = link.hasAttribute('title');
-val = link;
-
-console.log(val);
+  console.log(val);
+}
